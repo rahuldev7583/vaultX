@@ -8,6 +8,7 @@ import nacl from "tweetnacl";
 import bs58 from "bs58";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import { FaEye, FaEyeSlash, FaTrash } from "react-icons/fa";
+import { log } from "console";
 
 // Token information interface
 interface Token {
@@ -84,6 +85,8 @@ const SolanaWallet = ({ mnemonic }: { mnemonic: string }) => {
   };
 
   const getBalance = async (publicKey: string): Promise<string> => {
+    console.log(publicKey);
+    
     try {
       const SOL_API = process.env.NEXT_PUBLIC_SOL_API || "";
       const response = await axios.post(
